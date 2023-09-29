@@ -82,16 +82,17 @@ def face_detect(images):
 			print('Recovering from OOM error; New batch size: {}'.format(batch_size))
 			continue
 		break
-
 	results = []
-    	default_img = []
-    	for rect, image in zip(predictions, images):
+	default_img = []
+	pady1, pady2, padx1, padx2 = args.pads
+	for rect, image in zip(predictions, images):
         	if rect is None:
             		print("skip")
         	else:
             		default_img = rect
             		break    
-     	pady1, pady2, padx1, padx2 = args.pads
+	
+     	
 	
      	for rect, image in zip(predictions, images):
 		if rect is None:
