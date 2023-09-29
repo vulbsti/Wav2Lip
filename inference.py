@@ -88,7 +88,9 @@ def face_detect(images):
 	pady1, pady2, padx1, padx2 = args.pads
 	default_img=[]
 	for rect, image in zip(predictions, images):
-		if rect not None:
+		if rect is None:
+			print("skip")
+		else:
 			default_img=image
 			break
 	for rect, image in zip(predictions, images):
