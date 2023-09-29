@@ -101,14 +101,12 @@ def face_detect(images):
 			#cv2.imwrite('temp/image.jpg',image)
 			#cv2.imwrite('temp/faulty_frame.jpg', image) # check this frame where the face was not detected.
 			#raise ValueError('Face not detected! Ensure the video contains a face in all the frames.')
-	
-        	else:
+		else:
 			default_img = rect
 			y1 = max(0, rect[1] - pady1)
 			y2 = min(image.shape[0], rect[3] + pady2)
 			x1 = max(0, rect[0] - padx1)
 			x2 = min(image.shape[1], rect[2] + padx2)
-			
 		results.append([x1, y1, x2, y2])
 	boxes = np.array(results)
 	if not args.nosmooth: boxes = get_smoothened_boxes(boxes, T=5)
