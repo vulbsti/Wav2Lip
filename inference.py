@@ -90,7 +90,7 @@ def face_detect(images):
 
 	for rect, image in zip(predictions, images):
 		if rect is None:
-			results.append(0,0,0,0)
+			results.append([0,0,0,0])
 			#cv2.imwrite('temp/faulty_frame.jpg', image) # check this frame where the face was not detected.
 			cv2.imwrite('temp/face.jpg', image) # check this frame where the face was not detected.
 			#raise ValueError('Face not detected! Ensure the video contains a face in all the frames.')
