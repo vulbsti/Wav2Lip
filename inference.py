@@ -91,10 +91,7 @@ def face_detect(images):
         	else:
             		default_img = rect
             		break    
-	
-     	
-	
-     	for rect, image in zip(predictions, images):
+	for rect, image in zip(predictions, images):
 		if rect is None:
 			rect =default_img
 			y1 = max(0, rect[1] - pady1)
